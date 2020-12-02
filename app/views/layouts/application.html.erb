@@ -10,6 +10,15 @@
   </head>
 
   <body>
+    <h1>宅配サービス</h1>
+    <% if user_signed_in? %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn" %>
+      <%= link_to "マイページ", user_path(current_user), class: "header__mypage--btn" %> <br>
+    <% else %>
+      <%= link_to "ログイン", new_user_session_path, class: "header__right--btn" %>
+      <%= link_to "新規登録", new_user_registration_path, class: "header__right--btn" %> <br>
+    <% end %>
+    <%= link_to "トップページ", root_path, class: "header__mypage--btn" %> <br>
     <%= yield %>
   </body>
 </html>
