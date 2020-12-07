@@ -1,5 +1,6 @@
-<h3 class="user__name"><%=@user.name%>様のプラン</h3>
+<h1>商品変更・お休み<h1>
 
+<h3 class="plan">プラン</h3>
 <table border="1">
   <tr>
     <th></th>
@@ -33,6 +34,11 @@
   </tr>
 </table>
 
-<% if user_signed_in? %>
-  <%= link_to "商品変更・お休み", edit_order_url(@order.id), class: "header__chenge--btn" %> <br>
+<div class="content__title">
+  商品の変更
+</div>
+<%= form_with model: @orders, class: :form, local: true do |form| %>
+  <%= form.number_field :product1, placeholder: :商品番号, class: :form__text %>
+  <%= form.number_field :number_of_product1a, placeholder: :本数, class: :form__text %>
+  <%= form.submit '変更する', class: :form__btn %>
 <% end %>

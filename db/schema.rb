@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_04_070555) do
+ActiveRecord::Schema.define(version: 2020_12_07_102844) do
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,28 @@ ActiveRecord::Schema.define(version: 2020_12_04_070555) do
     t.text "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "product1"
+    t.integer "number_of_product1a"
+    t.integer "number_of_product1b"
+    t.integer "product2"
+    t.integer "number_of_product2a"
+    t.integer "number_of_product2b"
+    t.integer "product3"
+    t.integer "number_of_product3a"
+    t.integer "number_of_product3b"
+    t.integer "product4"
+    t.integer "number_of_product4a"
+    t.integer "number_of_product4b"
+    t.integer "product5"
+    t.integer "number_of_product5a"
+    t.integer "number_of_product5b"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -37,8 +59,13 @@ ActiveRecord::Schema.define(version: 2020_12_04_070555) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "address"
+    t.string "tell"
+    t.integer "pattern"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "orders", "users"
 end
