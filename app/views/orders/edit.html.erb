@@ -37,8 +37,12 @@
 <div class="content__title">
   商品の変更
 </div>
-<%= form_with model: @orders, class: :form, local: true do |form| %>
-  <%= form.number_field :product1, placeholder: :商品番号, class: :form__text %>
-  <%= form.number_field :number_of_product1a, placeholder: :本数, class: :form__text %>
+<%= form_with model: @order, class: :form, local: true do |form| %>
+  <%= form.number_field :product1, placeholder: :商品番号1, class: :form__text %>
+  <%= form.number_field :number_of_product1a, placeholder: :本数1a, class: :form__text %>
+  <%= form.number_field :number_of_product1b, placeholder: :本数1b, class: :form__text %> <br>
+  <%= form.number_field :product2, placeholder: :商品番号2, class: :form__text %>
+  <%= form.number_field :number_of_product2a, placeholder: :本数2a, class: :form__text %>
+  <%= form.number_field :number_of_product2b, placeholder: :本数2b, class: :form__text %>
   <%= form.submit '変更する', class: :form__btn %>
 <% end %>
